@@ -1101,7 +1101,7 @@ containing a value of this type.
         public static final int btnCall=0x7f060043;
         public static final int btnHangup=0x7f06003d;
         public static final int btnSend=0x7f060042;
-        public static final int btnSubmit=0x7f06003e;
+        public static final int btnLogIn =0x7f06003e;
         public static final int checkbox=0x7f06002d;
         public static final int collapseActionView=0x7f06000d;
         public static final int default_activity_button=0x7f060028;

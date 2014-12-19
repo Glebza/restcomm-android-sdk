@@ -705,8 +705,7 @@ public class SipManager implements SipListener, ISipManager, Serializable {
 		try {
 			Request r = inviteRequest.MakeRequest(this, to, message);
 
-			final ClientTransaction transaction = this.sipProvider
-					.getNewClientTransaction(r);
+			final ClientTransaction transaction = this.sipProvider.getNewClientTransaction(r);
 			Thread thread = new Thread() {
 				public void run() {
 					try {

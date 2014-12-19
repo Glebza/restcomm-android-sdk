@@ -5,15 +5,15 @@
         android:key="sip_proxy_settings"
         android:title="Sip Settings" >
         <EditTextPreference
-            android:defaultValue="alice"
+            android:defaultValue="403"
             android:key="pref_sip_user"
             android:title="User" />
         <EditTextPreference
-            android:defaultValue="1234"
+            android:defaultValue="EDtyr5473$d45@"
             android:key="pref_sip_password"
             android:title="Password" />
         <EditTextPreference
-            android:defaultValue="192.168.10.100"
+            android:defaultValue="46.38.48.86"
             android:key="pref_proxy_ip"
             android:title="Proxy IP" />
         <EditTextPreference

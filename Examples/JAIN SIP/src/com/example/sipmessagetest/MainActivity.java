@@ -1,16 +1,12 @@
 package com.example.sipmessagetest;
 
-import org.mobicents.restcomm.android.sdk.IDevice;
-import org.mobicents.restcomm.android.sdk.NotInitializedException;
-import org.mobicents.restcomm.android.sdk.SipProfile;
-import org.mobicents.restcomm.android.sdk.impl.DeviceImpl;
-import android.support.v7.app.ActionBarActivity;
-import android.text.method.ScrollingMovementMethod;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBarActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,29 +14,33 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import org.mobicents.restcomm.android.sdk.SipProfile;
+import org.mobicents.restcomm.android.sdk.impl.DeviceImpl;
 
-public class MainActivity extends ActionBarActivity implements OnClickListener,
-		 OnSharedPreferenceChangeListener {
-	SharedPreferences prefs;
-	Button btnSubmit;
-	EditText editTextUser;
-	EditText editTextDomain;
-	EditText editTextTo;
-	EditText editTextMessage;
-	TextView textViewChat;
-	String chatText = "";
-	SipProfile sipProfile;
+    public class MainActivity extends ActionBarActivity implements OnClickListener,
+            OnSharedPreferenceChangeListener {
+        SharedPreferences prefs;
+        Button btnSubmit;
+        EditText editTextUser;
+        EditText editTextDomain;
+        EditText editTextTo;
+        EditText editTextMessage;
+        TextView textViewChat;
+        String chatText = "";
+        SipProfile sipProfile;
 
 
-	@Override
+        @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		sipProfile = new SipProfile();
 		DeviceImpl.GetInstance().Initialize(getApplicationContext(), sipProfile);
-		
-		Button btnRegister = (Button) findViewById(R.id.btnSubmit);
-		btnRegister.setOnClickListener(this);
+
+        Button btnRegister = (Button)findViewById(R.id.btnRegister);
+        btnRegister.setOnClickListener(this);
+		Button btnLogIN = (Button) findViewById(R.id.btnLogIn);
+		btnLogIN.setOnClickListener(this);
 		Button btnSend = (Button) findViewById(R.id.btnSend);
 		btnSend.setOnClickListener(this);
 		Button btnCall = (Button) findViewById(R.id.btnCall);
@@ -84,7 +84,11 @@ public class MainActivity extends ActionBarActivity implements OnClickListener,
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case (R.id.btnSubmit):
+            case(R.id.btnRegister): {
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+            }
+		case (R.id.btnLogIn):
 			DeviceImpl.GetInstance().Register();
 			break;
 		case (R.id.btnCall):
